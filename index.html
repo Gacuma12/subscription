@@ -1,9 +1,11 @@
-<html>  
-    <head><meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hax4Bytes</title>
-        <style>
-            body {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hax4Bytes</title>
+    <style>
+        body {
             font-family: Arial, sans-serif;
             margin: 20px;
         }
@@ -99,105 +101,116 @@
         .form-group button:hover {
             background-color: #0056b3;
         }
-        </style></head>
-    <body>
-        <div class="container">
-            <div class="section">
-                <h1>Prodigal Ran Ep7</h1>
-                <h2>Hack Features</h2>
-                <div class="features">
-                    *Area of Effect<br>
-                    *Long Range<br>
-                    *Attack Speed<br>
-                    *Zoom Hack<br>
-                    *Cut Skill<br>
-                    *Pet Bug (Skill, Dual Pet Skill, Pet Speed)<br>
-                    *Fast Revive (PK)
-                </div>
-                <a href="#" class="subscribe-button" id="subscribeBtn">Subscribe</a>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <h1>Prodigal Ran Ep7</h1>
+            <h2>Hack Features</h2>
+            <div class="features">
+                *Area of Effect<br>
+                *Long Range<br>
+                *Attack Speed<br>
+                *Zoom Hack<br>
+                *Cut Skill<br>
+                *Pet Bug (Skill, Dual Pet Skill, Pet Speed)<br>
+                *Fast Revive (PK)
             </div>
-            <div class="section">
-                <h1>Prodigal Ran Ep7</h1>
-                <h2>Hack Features</h2>
-                <div class="features">
-                    *Area of Effect<br>
-                    *Long Range<br>
-                    *Attack Speed<br>
-                    *Zoom Hack<br>
-                    *Cut Skill<br>
-                    *Pet Bug (Skill, Dual Pet Skill, Pet Speed)<br>
-                    *Fast Revive (PK)
-                </div>
-                <a href="#" class="subscribe-button" id="subscribeBtn2">Subscribe</a>
-            </div>
-            <div class="section">
-                <h1>Prodigal Ran Ep7</h1>
-                <h2>Hack Features</h2>
-                <div class="features">
-                    *Area of Effect<br>
-                    *Long Range<br>
-                    *Attack Speed<br>
-                    *Zoom Hack<br>
-                    *Cut Skill<br>
-                    *Pet Bug (Skill, Dual Pet Skill, Pet Speed)<br>
-                    *Fast Revive (PK)
-                </div>
-                <a href="#" class="subscribe-button" id="subscribeBtn3">Subscribe</a>
-            </div>
+            <a href="#" class="subscribe-button" data-package="prodigal" id="subscribeBtn">Subscribe</a>
         </div>
-    
-        <div id="subscribeModal" class="modal">
-            <div class="modal-content">
-                <span class="close" id="closeModal">&times;</span>
-                <h2>Subscribe</h2>
-               <form id="subscribeForm" action="https://formspree.io/f/meojlvzd" method="post">
-    <div class="form-group">
-        <label for="gcashNumber">Gcash Number:</label>
-        <input type="text" id="gcashNumber" name="gcashNumber" required>
-    </div>
-    <div class="form-group">
-        <label for="referenceNumber">Reference Number:</label>
-        <input type="text" id="referenceNumber" name="referenceNumber" required>
-    </div>
-    <div class="form-group">
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" required>
-    </div>
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-        <button type="submit">Submit</button>
-    </div>
-</form>
+        <div class="section">
+            <h1>Heroic Ran Ep7</h1>
+            <h2>Hack Features</h2>
+            <div class="features">
+                *Area of Effect<br>
+                *Long Range<br>
+                *Attack Speed<br>
+                *Zoom Hack<br>
+                *Cut Skill<br>
+                *Pet Bug (Skill, Dual Pet Skill, Pet Speed)<br>
+                *Fast Revive (PK)
             </div>
+            <a href="#" class="subscribe-button" data-package="heroic" id="subscribeBtn2">Subscribe</a>
         </div>
-        <script>
-            // Get modal element and button elements
-            var modal = document.getElementById("subscribeModal");
-            var btns = document.querySelectorAll(".subscribe-button");
-            var span = document.getElementById("closeModal");
-    
-            // Show the modal when any subscribe button is clicked
-            btns.forEach(function(btn) {
-                btn.onclick = function(event) {
-                    event.preventDefault();
-                    modal.style.display = "block";
-                }
-            });
-    
-            // Close the modal when the close button is clicked
-            span.onclick = function() {
+        <div class="section">
+            <h1>Ranatiko Ran Ep7</h1>
+            <h2>Hack Features</h2>
+            <div class="features">
+                *Area of Effect<br>
+                *Long Range<br>
+                *Attack Speed<br>
+                *Zoom Hack<br>
+                *Cut Skill<br>
+                *Pet Bug (Skill, Dual Pet Skill, Pet Speed)<br>
+                *Fast Revive (PK)
+            </div>
+            <a href="#" class="subscribe-button" data-package="ranatiko" id="subscribeBtn3">Subscribe</a>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="subscribeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Subscribe</h2>
+            <form id="subscribeForm" action="https://formspree.io/f/your-form-id" method="post">
+                <input type="hidden" name="package" id="packageField" value="prodigal">
+                <div class="form-group">
+                    <label for="gcashNumber">Gcash Number:</label>
+                    <input type="text" id="gcashNumber" name="gcashNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="referenceNumber">Reference Number:</label>
+                    <input type="text" id="referenceNumber" name="referenceNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Function to set the package type and open the modal
+        function setPackage(packageName) {
+            document.getElementById('packageField').value = packageName;
+        }
+
+        // Get modal element and button elements
+        var modal = document.getElementById("subscribeModal");
+        var btns = document.querySelectorAll(".subscribe-button");
+        var span = document.getElementById("closeModal");
+
+        // Show the modal when any subscribe button is clicked and set the package type
+        btns.forEach(function(btn) {
+            btn.onclick = function(event) {
+                event.preventDefault();
+                var packageName = btn.getAttribute('data-package');
+                setPackage(packageName);
+                modal.style.display = "block";
+            }
+        });
+
+        // Close the modal when the close button is clicked
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target == modal) {
                 modal.style.display = "none";
             }
-    
-            // Close the modal when clicking outside of it
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        </script>
-    </body>
+        }
+    </script>
+</body>
 </html>
