@@ -201,31 +201,31 @@
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
             <h2>Subscribe</h2>
-            <form id="subscribeForm">
-    <div class="form-group">
-        <label for="gcashNumber">Gcash Number:</label>
-        <input type="text" id="gcashNumber" name="gcashNumber" required>
-    </div>
-    <div class="form-group">
-        <label for="referenceNumber">Reference Number:</label>
-        <input type="text" id="referenceNumber" name="referenceNumber" required>
-    </div>
-    <div class="form-group">
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" required>
-    </div>
-    <div class="form-group">
-        <label for="totalPrice">Total Price:</label>
-        <input type="text" id="totalPrice" name="totalPrice" readonly>
-    </div>
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-        <button type="submit">Submit</button>
-    </div>
-</form>
+            <form id="subscribeForm" action="https://formspree.io/f/meojlvzd" method="POST">
+                <div class="form-group">
+                    <label for="gcashNumber">Gcash Number:</label>
+                    <input type="text" id="gcashNumber" name="gcashNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="referenceNumber">Reference Number:</label>
+                    <input type="text" id="referenceNumber" name="referenceNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" required>
+                </div>
+                <div class="form-group">
+                    <label for="totalPrice">Total Price:</label>
+                    <input type="text" id="totalPrice" name="totalPrice" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -234,64 +234,67 @@
     </div>
 
     <script>
-    var modal = document.getElementById("subscribeModal");
-    var btns = document.querySelectorAll(".subscribe-button");
-    var span = document.getElementById("closeModal");
-    var form = document.getElementById("subscribeForm");
-    var thankYouMessage = document.getElementById("thankYouMessage");
-    var quantityInput = document.getElementById("quantity");
-    var totalPriceInput = document.getElementById("totalPrice");
+        var modal = document.getElementById("subscribeModal");
+        var btns = document.querySelectorAll(".subscribe-button");
+        var span = document.getElementById("closeModal");
+        var form = document.getElementById("subscribeForm");
+        var thankYouMessage = document.getElementById("thankYouMessage");
+        var quantityInput = document.getElementById("quantity");
+        var totalPriceInput = document.getElementById("totalPrice");
 
-    // Function to update total price
-    function updateTotalPrice() {
-        var quantity = parseInt(quantityInput.value, 10) || 0;
-        var totalPrice = quantity * 500;
-        totalPriceInput.value = totalPrice.toFixed(2);
-    }
-
-    // Add event listener to quantity input to update total price on change
-    quantityInput.addEventListener('input', updateTotalPrice);
-
-    btns.forEach(function(btn) {
-        btn.onclick = function(event) {
-            event.preventDefault();
-            modal.style.display = "block";
+        // Function to update total price
+        function updateTotalPrice() {
+            var quantity = parseInt(quantityInput.value, 10) || 0;
+            var totalPrice = quantity * 500;
+            totalPriceInput.value = totalPrice.toFixed(2);
         }
-    });
 
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
+        // Add event listener to quantity input to update total price on change
+        quantityInput.addEventListener('input', updateTotalPrice);
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
+        btns.forEach(function(btn) {
+            btn.onclick = function(event) {
+                event.preventDefault();
+                modal.style.display = "block";
+            }
+        });
+
+        span.onclick = function() {
             modal.style.display = "none";
         }
-    }
 
-    form.onsubmit = function(event) {
-        event.preventDefault();
-        var formData = new FormData(form);
-        fetch('https://formspree.io/f/meojlvzd', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            if (response.ok) {
+        window.onclick = function(event) {
+            if (event.target == modal) {
                 modal.style.display = "none";
-                thankYouMessage.style.display = "block";
-                setTimeout(function() {
-                    thankYouMessage.style.display = "none";
-                }, 5000); // Hide message after 5 seconds
-            } else {
-                alert('Failed to send the form. Please try again.');
             }
-        })
-        .catch(error => {
-            alert('Failed to send the form. Please try again.');
-        });
-    }
-</script>
+        }
 
+        form.onsubmit = function(event) {
+            event.preventDefault();
+            var formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    modal.style.display = "none";
+                    thankYouMessage.style.display = "block";
+                    setTimeout(function() {
+                        thankYouMessage.style.display = "none";
+                    }, 5000); // Hide message after 5 seconds
+                } else {
+                    alert('Failed to send the form. Please try again.');
+                }
+            })
+            .catch(error => {
+                alert('Failed to send the form. Please try again.');
+            });
+        }
+    </script>
 </body>
 </html>
