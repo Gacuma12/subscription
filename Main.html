@@ -1,0 +1,203 @@
+<html>  
+    <head><meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hax4Bytes</title>
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; /* Space between the sections */
+        }
+        .section {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .features {
+            line-height: 1.5; /* Adjust if necessary */
+            margin-bottom: 20px; /* Space between the list and the button */
+        }
+        .subscribe-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff; /* Blue background color */
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .subscribe-button:hover {
+            background-color: #0056b3; /* Darker blue for hover effect */
+        }
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 5px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        </style></head>
+    <body>
+        <div class="container">
+            <div class="section">
+                <h1>Prodigal Ran Ep7</h1>
+                <h2>Hack Features</h2>
+                <div class="features">
+                    *Area of Effect<br>
+                    *Long Range<br>
+                    *Attack Speed<br>
+                    *Zoom Hack<br>
+                    *Cut Skill<br>
+                    *Pet Bug (Skill, Dual Pet Skill, Pet Speed)<br>
+                    *Fast Revive (PK)
+                </div>
+                <a href="#" class="subscribe-button" id="subscribeBtn">Subscribe</a>
+            </div>
+            <div class="section">
+                <h1>Prodigal Ran Ep7</h1>
+                <h2>Hack Features</h2>
+                <div class="features">
+                    *Area of Effect<br>
+                    *Long Range<br>
+                    *Attack Speed<br>
+                    *Zoom Hack<br>
+                    *Cut Skill<br>
+                    *Pet Bug (Skill, Dual Pet Skill, Pet Speed)<br>
+                    *Fast Revive (PK)
+                </div>
+                <a href="#" class="subscribe-button" id="subscribeBtn2">Subscribe</a>
+            </div>
+            <div class="section">
+                <h1>Prodigal Ran Ep7</h1>
+                <h2>Hack Features</h2>
+                <div class="features">
+                    *Area of Effect<br>
+                    *Long Range<br>
+                    *Attack Speed<br>
+                    *Zoom Hack<br>
+                    *Cut Skill<br>
+                    *Pet Bug (Skill, Dual Pet Skill, Pet Speed)<br>
+                    *Fast Revive (PK)
+                </div>
+                <a href="#" class="subscribe-button" id="subscribeBtn3">Subscribe</a>
+            </div>
+        </div>
+    
+        <div id="subscribeModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <h2>Subscribe</h2>
+                <form id="subscribeForm" action="send_email.php" method="post">
+                    <div class="form-group">
+                        <label for="gcashNumber">Gcash Number:</label>
+                        <input type="text" id="gcashNumber" name="gcashNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="referenceNumber">Reference Number:</label>
+                        <input type="text" id="referenceNumber" name="referenceNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
+            // Get modal element and button elements
+            var modal = document.getElementById("subscribeModal");
+            var btns = document.querySelectorAll(".subscribe-button");
+            var span = document.getElementById("closeModal");
+    
+            // Show the modal when any subscribe button is clicked
+            btns.forEach(function(btn) {
+                btn.onclick = function(event) {
+                    event.preventDefault();
+                    modal.style.display = "block";
+                }
+            });
+    
+            // Close the modal when the close button is clicked
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+    
+            // Close the modal when clicking outside of it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>
