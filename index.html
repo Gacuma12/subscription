@@ -12,6 +12,17 @@
             background-color: #333;
             color: #f4f4f4;
         }
+        .header {
+            background-color: #222;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #444;
+        }
+        .header h2 {
+            margin: 0;
+            font-size: 18px;
+        }
         .container {
             display: flex;
             justify-content: space-between;
@@ -132,6 +143,11 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        <h2>Payment Transaction</h2>
+        <p>GCash number: 09999999999</p>
+    </div>
+
     <div class="container">
         <div class="section">
             <h1>Prodigal Ran Ep7</h1>
@@ -266,7 +282,6 @@
                 }
             })
             .catch(error => {
-                console.error('Error:', error); // Log the error
                 alert('Failed to send the form. Please try again.');
             });
         }
