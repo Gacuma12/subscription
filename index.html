@@ -158,6 +158,7 @@
             <span class="close" id="closeModal">&times;</span>
             <h2>Subscribe</h2>
             <form id="subscribeForm" action="https://formspree.io/f/meojlvzd" method="post">
+                <input type="hidden" name="_next" value="https://your-site.github.io/thank-you.html">
                 <input type="hidden" name="package" id="packageField" value="prodigal">
                 <div class="form-group">
                     <label for="gcashNumber">Gcash Number:</label>
@@ -183,22 +184,15 @@
     </div>
 
     <script>
-        // Function to set the package type and open the modal
-        function setPackage(packageName) {
-            document.getElementById('packageField').value = packageName;
-        }
-
         // Get modal element and button elements
         var modal = document.getElementById("subscribeModal");
         var btns = document.querySelectorAll(".subscribe-button");
         var span = document.getElementById("closeModal");
 
-        // Show the modal when any subscribe button is clicked and set the package type
+        // Show the modal when any subscribe button is clicked
         btns.forEach(function(btn) {
             btn.onclick = function(event) {
                 event.preventDefault();
-                var packageName = btn.getAttribute('data-package');
-                setPackage(packageName);
                 modal.style.display = "block";
             }
         });
@@ -214,6 +208,31 @@
                 modal.style.display = "none";
             }
         }
+
+        // Handle form submission
+        document.getElementById('subscribeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            fetch('/.netlify/functions/handleForm', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Form submitted successfully!');
+                document.getElementById('subscribeForm').reset();
+                modal.style.display = "none"; // Close the modal
+            })
+            .catch(error => {
+                alert('Failed to submit the form.');
+            });
+        });
     </script>
 </body>
 </html>
