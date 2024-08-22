@@ -1,3 +1,6 @@
+Here's the complete HTML code with the "Not Available" message functionality added. I've included the modal for the "Not Available" message and updated the JavaScript to handle the "N/A" buttons accordingly.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -229,43 +232,64 @@
         </div>
     </div>
 
+    <div id="notAvailableModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeNotAvailable">&times;</span>
+            <h2>Not Available</h2>
+            <p>Sorry, this subscription is currently not available.</p>
+        </div>
+    </div>
+
     <div id="thankYouMessage" class="thank-you-message">
         <p>It may take a while before validating the transaction. Please always check your email.</p>
     </div>
 
     <script>
-        var modal = document.getElementById("subscribeModal");
-        var btns = document.querySelectorAll(".subscribe-button");
-        var span = document.getElementById("closeModal");
+        var subscribeModal = document.getElementById("subscribeModal");
+        var notAvailableModal = document.getElementById("notAvailableModal");
+        var subscribeBtns = document.querySelectorAll(".subscribe-button");
+        var closeSubscribe = document.getElementById("closeModal");
+        var closeNotAvailable = document.getElementById("closeNotAvailable");
         var form = document.getElementById("subscribeForm");
         var thankYouMessage = document.getElementById("thankYouMessage");
         var quantityInput = document.getElementById("quantity");
         var totalPriceInput = document.getElementById("totalPrice");
 
-        // Function to update total price
         function updateTotalPrice() {
             var quantity = parseInt(quantityInput.value, 10) || 0;
             var totalPrice = quantity * 500;
             totalPriceInput.value = totalPrice.toFixed(2);
         }
 
-        // Add event listener to quantity input to update total price on change
         quantityInput.addEventListener('input', updateTotalPrice);
 
-        btns.forEach(function(btn) {
+        subscribe
+
+Btns.forEach(function(btn) {
             btn.onclick = function(event) {
                 event.preventDefault();
-                modal.style.display = "block";
+                if (btn.textContent.trim() === "N/A") {
+                    notAvailableModal.style.display = "block";
+                } else {
+                    subscribeModal.style.display = "block";
+                }
             }
         });
 
-        span.onclick = function() {
-            modal.style.display = "none";
+        closeSubscribe.onclick = function() {
+            subscribeModal.style.display = "none";
+        }
+
+        closeNotAvailable.onclick = function() {
+            notAvailableModal.style.display = "none";
         }
 
         window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+            if (event.target == subscribeModal) {
+                subscribeModal.style.display = "none";
+            }
+            if (event.target == notAvailableModal) {
+                notAvailableModal.style.display = "none";
             }
         }
 
@@ -282,11 +306,11 @@
             })
             .then(response => {
                 if (response.ok) {
-                    modal.style.display = "none";
+                    subscribeModal.style.display = "none";
                     thankYouMessage.style.display = "block";
                     setTimeout(function() {
                         thankYouMessage.style.display = "none";
-                    }, 5000); // Hide message after 5 seconds
+                    }, 5000);
                 } else {
                     alert('Failed to send the form. Please try again.');
                 }
@@ -298,3 +322,4 @@
     </script>
 </body>
 </html>
+```
